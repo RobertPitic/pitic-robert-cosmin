@@ -2,15 +2,27 @@ package tema.scoalainformala.week6;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.platform.suite.api.Suite;
-import org.junit.platform.suite.api.SelectClasses;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
+    @ParameterizedTest
+    @CsvSource({
+          // mm  , cm , dm, m, km,    expectedSum
+            "1000, 100, 10, 1, 0.001, 5000",
+            "0, 0, 0, 0, 1, 1",
+            "100, 10, 1, 0.1, 0, 400"
+    })
+
+    public void testCalculate(float mm, float cm, float dm, float m, float km, float expectedSum) {
+        Calculator calculator = new Calculator();
+        calculator.calculate(mm, cm, dm, m, km);
+        assertEquals(expectedSum, calculator.getSum());
+    }
+
     @Test
-    public void testAdditionSubstraction() {
+    public void testAdditionSubtraction() {
         Calculator calculator = new Calculator();
         assertEquals(1090, calculator.calculate(-10, 10, 0, 1, 0));
     }

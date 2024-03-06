@@ -28,9 +28,6 @@ public class Calculator {
         return km;
     }
 
-    public float getSum() {
-        return sum;
-    }
 
     public float calculate(float mm, float cm, float dm, float m, float km) {
         this.mm = mm;
@@ -64,7 +61,9 @@ public class Calculator {
         }
         sum = mm + cm + dm + m + km;
         return sum;
-
+    }
+    public float getSum() {
+        return sum;
     }
 }
 
