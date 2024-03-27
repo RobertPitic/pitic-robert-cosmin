@@ -30,7 +30,7 @@ class CalculatorTest {
     @Test
     public void testSimpleAddition() {
         Calculator calculator = new Calculator();
-        assertEquals(100, calculator.calculate(0, 10 + 90, 0, 0, 0));
+        assertEquals(910, calculator.calculate(0, 10, 90, 0, 0));
     }
 
     @Test
